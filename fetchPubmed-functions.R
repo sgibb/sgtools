@@ -31,7 +31,7 @@
 ## params:
 ##  query: character, search term e.g. "Mass Spectrometry[MeSH]"
 ##  from: numeric, start year
-##  to: numeric, start year
+##  to: numeric, end year [default: last year]
 ##
 ## returns:
 ##  a 2-column matrix
@@ -41,7 +41,7 @@
 ## example:
 ##  ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010);
 ##  ms
-##     year counts
+##          year counts
 ##     [1,] 2009  10829
 ##     [2,] 2010  11143
 ##
@@ -55,8 +55,8 @@ fetchPubmed <- function(query, fromYear,
     
     ## testing arguments
     isValidQuery <- is.character(query);
-    isValidFromYear <- is.numeric(fromYear);
-    isValidToYear <- is.numeric(toYear);
+    isValidFromYear <- is.numeric(fromYear) && fromYear <= toYear;
+    isValidToYear <- is.numeric(toYear) && toYear >= fromYear;
 
     stopifnot(isValidQuery);
     stopifnot(isValidFromYear);
@@ -76,7 +76,7 @@ fetchPubmed <- function(query, fromYear,
 
         ## to be polite and to follow pubmed's e-utility guidelines we have to
         ## wait (max. 3 queries per second allowed)
-        Sys.sleep(0.5)
+        Sys.sleep(0.5);
     }
 
     return(m);
@@ -99,7 +99,7 @@ fetchPubmed <- function(query, fromYear,
     query <- gsub("\\[", "%5B", query);
     query <- gsub("\\]", "%5D", query);
 
-    return (query);
+    return(query);
 }
 
 ## helper function to parse xml and grep counts
