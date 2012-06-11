@@ -7,9 +7,9 @@ example:
     source("fetchArxiv-functions.R")
     bayes <- fetchArxiv("cat:stat.AP AND abs:Bayes", 2009, 2010)
     bayes
-         year counts
-    [1,] 2009      4
-    [2,] 2010     13
+    #     year counts
+    #[1,] 2009      4
+    #[2,] 2010     13
 
 
 # fetchPubmed
@@ -23,11 +23,11 @@ Thanks to Kristoffer Magnusson for providing this nice article:
 example:
 
     source("fetchPubmed-functions.R")
-    ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010);
+    ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010)
     ms
-        year counts
-    [1,] 2009 10829
-    [2,] 2010 11143
+    #    year counts
+    #[1,] 2009 10829
+    #[2,] 2010 11143
 
 
 # multipleHist
@@ -37,5 +37,5 @@ computes histogram for a list of data
 example:
 
     source("multipleHist-functions.R")
-    x <- lapply(c(1, 1.1, 4), rnorm, n=1000);
-    multipleHist(x);
+    x <- lapply(c(1, 1.1, 4), rnorm, n=1000)
+    multipleHist(x)
