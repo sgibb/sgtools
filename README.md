@@ -17,8 +17,8 @@ example:
 fetches query counts from pubmed database grouped by years
 
 Thanks to Kristoffer Magnusson for providing this nice article: 
-"An R Script to Automatically download PubMed Citat0ion Counts By Year of Publication"
-(http://rpsychologist.com/an-r-script-to-automatically-look-at-pubmed-citation-counts-by-year-of-publication/)
+[An R Script to Automatically download PubMed Citat0ion Counts By Year of
+Publication](http://rpsychologist.com/an-r-script-to-automatically-look-at-pubmed-citation-counts-by-year-of-publication/)
 
 example:
 
