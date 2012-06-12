@@ -33,10 +33,10 @@ ms
 #[2,] 2010  11143
 
 total <- fetchPubmed("", 1975, 2011);
-barplot(total[, "counts"], names.arg=as.character(total[, "year"),
+barplot(total[, "counts"], names.arg=as.character(total[, "year"]),
         main="total number of publications in pubmed", col="#7FC97F")
 ```
-![pubmed publication barplot](https://github.com/sgibb/rmisc/blob/master/images/totalNumberPubmed.png)
+![pubmed publication barplot](https://github.com/sgibb/rmisc/raw/master/images/totalNumberPubmed.png)
 
 # multipleHist
 
@@ -48,4 +48,4 @@ source("multipleHist-functions.R")
 x <- lapply(c(1, 1.1, 4), rnorm, n=1000)
 multipleHist(x)
 ```
-![multiple histograms](https://github.com/sgibb/rmisc/blob/master/images/multipleHist.png)
+![multiple histograms](https://github.com/sgibb/rmisc/raw/master/images/multipleHist.png)
