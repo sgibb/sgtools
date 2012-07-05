@@ -14,7 +14,7 @@ fetches query counts from arxiv database grouped by years
 example:
 
 ```R
-source("fetchArxiv-functions.R")
+library("rmisc")
 bayes <- fetchArxiv("cat:stat.AP AND abs:Bayes", 2009, 2010)
 bayes
 #     year counts
@@ -34,7 +34,7 @@ Publication](http://rpsychologist.com/an-r-script-to-automatically-look-at-pubme
 example:
 
 ```R
-source("fetchPubmed-functions.R")
+library("rmisc")
 ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010)
 ms
 #     year counts
@@ -54,7 +54,7 @@ computes histogram for a list of data
 
 example:
 ```R
-source("multipleHist-functions.R")
+library("rmisc")
 x <- lapply(c(1, 1.1, 4), rnorm, n=1000)
 multipleHist(x)
 ```
