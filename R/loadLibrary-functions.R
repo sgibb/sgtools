@@ -13,20 +13,22 @@
 ##
 ## See <http://www.gnu.org/licenses/>
 
-## loadLibrary
-##  helper function to call "library" and install missing packages if needed
-##
-## params:
-##  x: the name of a package
-##  repos: character vector, the base URLs of the repositories to use
-##  ...: arguments to be passed to "require"
-##
-## returns:
-##  nothing
-##
-## example:
-##  loadLibrary("MALDIquant")
-##
+#' loadLibrary
+#' 
+#' helper function to call \code{\link{library}} and install missing packages
+#' if needed
+#'
+#' @param x the name of a package
+#' @param repos character vector, the base URLs of the repositories to use
+#' @param ... arguments to be passed to \code{\link{require}}
+#'
+#' @return nothing
+#' @seealso install.pacakges require
+#' @export
+#'
+#' @examples
+#'  loadLibrary("MALDIquant")
+#'
 
 loadLibrary <- function(x, repos="http://cran.at.r-project.org", ...) {
     ## get warning settings
