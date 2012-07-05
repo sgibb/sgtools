@@ -13,22 +13,26 @@
 ##
 ## See <http://www.gnu.org/licenses/>
 
-## multipleHist 
-##  computes histogram for a list of data
-##
-## params:
-##  l: list of data values
-##  col: colors
-##  right: logical, Should the histogram cells are right-closed? see also ?hist
-##  ...: further arguments passed to barplot
-##
-## returns:
-##  a list of objects of class "histogram", see also ?hist
-##
-## example:
-##  x <- lapply(c(1, 1.1, 4), rnorm, n=1000);
-##  multipleHist(x);
-##
+#' multipleHist 
+#'
+#' computes histogram for a list of data
+#'
+#' @param l list of data values
+#' @param col colors 
+#' @param right logical, should the histogram cells are right-closed? see also
+#'  \code{\link{hist}}
+#' @param legend add legend to plot. Set \code{legend=NULL} to hide legend.
+#'  \code{\link{hist}}
+#' @param ... further arguments passed to \code{\link{barplot}}
+#'
+#' @return a list of objects of class "histogram", see also \code{\link{hist}}
+#' @seealso hist barplot
+#' @export
+#'
+#' @examples
+#'  x <- lapply(c(1, 1.1, 4), rnorm, n=1000);
+#'  multipleHist(x);
+#'
 
 multipleHist <- function(l, col=rainbow(length(l)), right=TRUE, legend=names(l), ...) {
     ## create hist for each list element
