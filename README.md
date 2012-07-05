@@ -1,3 +1,12 @@
+# install
+
+```R
+install.packages("devtools")
+library("devtools")
+install_github("rmisc", "sgibb")
+```
+
+
 # fetchArxiv
 
 fetches query counts from arxiv database grouped by years
@@ -38,6 +47,7 @@ barplot(total[, "counts"], names.arg=as.character(total[, "year"]),
 ```
 ![pubmed publication barplot](https://github.com/sgibb/rmisc/raw/master/images/totalNumberPubmed.png)
 
+
 # multipleHist
 
 computes histogram for a list of data
@@ -49,3 +59,4 @@ x <- lapply(c(1, 1.1, 4), rnorm, n=1000)
 multipleHist(x)
 ```
 ![multiple histograms](https://github.com/sgibb/rmisc/raw/master/images/multipleHist.png)
+
