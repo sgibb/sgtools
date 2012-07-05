@@ -13,18 +13,16 @@
 ##
 ## See <http://www.gnu.org/licenses/>
 
-## zoomPlot
-##  zoom into a user defined region (spanned by two clicks)
-##  double click on bottom left edge: return to original size
-##  double click on top right edge: return to last zoom level
-##  right click: quit
-##
-## params:
-##  none
-##
-## returns:
-##  nothing
-##
+#' zoomPlot
+#' 
+#' zoom into a user defined region (spanned by two clicks)
+#' \emph{double click on bottom left edge}: return to original size
+#' \emph{double click on top right edge}: return to last zoom level
+#' \emph{right click}: quit
+#'
+#' @export
+#'
+
 zoomPlot <- function() {
   
   limHistory <- list();

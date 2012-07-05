@@ -1,2 +1,3 @@
 export(loadLibrary)
 export(multipleHist)
+export(zoomPlot)
