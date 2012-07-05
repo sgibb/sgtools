@@ -23,23 +23,24 @@
 #'  
 #' \url{http://eutils.ncbi.nlm.nih.gov/entrez/query/static/esearch_help.html}
 #'
-#' @import RCurl XML
-#'
 #' @param query character, search term e.g. "Mass Spectrometry[MeSH]"
-#' @param from numeric, start year
-#' @param to numeric, end year [default: last year]
+#' @param fromYear numeric, start year
+#' @param toYear numeric, end year [default: last year]
 #'
 #' @return
 #'  a 2-column matrix
 #'      1. column: "year"
 #'      2. column: "counts"
 #'
+#' @import RCurl XML
+#' @export
+#'
 #' @examples
 #'  ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010);
 #'  ms
-#'          year counts
-#'     [1,] 2009  10829
-#'     [2,] 2010  11143
+#'  #        year counts
+#'  #   [1,] 2009  10829
+#'  #   [2,] 2010  11143
 #'
 
 fetchPubmed <- function(query, fromYear, 

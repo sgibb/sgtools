@@ -1,3 +1,5 @@
+export(fetchArxiv)
+export(fetchPubmed)
 export(loadLibrary)
 export(multipleHist)
 export(zoomPlot)

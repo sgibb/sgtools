@@ -9,9 +9,9 @@
   \item{query}{character, search term e.g. "Mass
   Spectrometry[MeSH]"}
 
-  \item{from}{numeric, start year}
+  \item{fromYear}{numeric, start year}
 
-  \item{to}{numeric, end year [default: last year]}
+  \item{toYear}{numeric, end year [default: last year]}
 }
 \value{
   a 2-column matrix 1. column: "year" 2. column: "counts"
@@ -23,9 +23,9 @@
 \examples{
 ms <- fetchPubmed("Mass Spectrometry[MeSH]", 2009, 2010);
  ms
-         year counts
-    [1,] 2009  10829
-    [2,] 2010  11143
+ #        year counts
+ #   [1,] 2009  10829
+ #   [2,] 2010  11143
 }
 \references{
   Kristoffer Magnusson \emph{An R Script to Automatically

@@ -5,6 +5,9 @@ Title: miscellaneous R functions
 Author: Sebastian Gibb
 Maintainer: Sebastian Gibb <mail@sebastiangibb.de>
 Description: This package provides some miscellaneous functions.
+Depends:
+    RCurl,
+    XML
 License: GPL (>= 3)
 URL: https://github.com/sgibb/rmisc
 LazyLoad: yes
@@ -14,3 +17,4 @@ Collate:
     'loadLibrary-functions.R'
     'multipleHist-functions.R'
     'zoomPlot-functions.R'
+    'rmisc.R'

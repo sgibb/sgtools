@@ -13,31 +13,31 @@
 ##
 ## See <http://www.gnu.org/licenses/>
 
-## Details: http://arxiv.org/help/api
-
-## fetchArxiv
-##  fetches query counts from arxiv database grouped by years
-##
-## depends:
-##  RCurl, XML
-##
-## params:
-##  query: character, search term e.g. "cat:stat AP AND abs:Bayes"
-##  from: numeric, start year
-##  to: numeric, end year [default: last year]
-##
-## returns:
-##  a 2-column matrix
-##      1. column: "year"
-##      2. column: "counts"
-##
-## example:
-##  bayes <- fetchArxiv("cat:stat.AP AND abs:Bayes", 2009, 2010)
-##  bayes 
-##          year counts
-##     [1,] 2009      4
-##     [2,] 2010     13
-##
+#' fetchArxiv
+#'
+#' fetches query counts from arxiv database grouped by years
+#'
+#' @references \url{http://arxiv.org/help/api}
+#'
+#' @param query character, search term e.g. "cat:stat AP AND abs:Bayes"
+#' @param fromYear numeric, start year
+#' @param toYear numeric, end year [default: last year]
+#'
+#' @return
+#'  a 2-column matrix
+#'      1. column: "year"
+#'      2. column: "counts"
+#'
+#' @import RCurl XML
+#' @export
+#'
+#' @examples
+#'  bayes <- fetchArxiv("cat:stat.AP AND abs:Bayes", 2009, 2010)
+#'  bayes 
+#'  #        year counts
+#'  #   [1,] 2009      4
+#'  #   [2,] 2010     13
+#'
 
 fetchArxiv <- function(query, fromYear, 
                        toYear=as.integer(format(Sys.Date(), "%Y"))-1) {
