@@ -1,3 +1,5 @@
 export(loadLibrary)
 export(multipleHist)
 export(zoomPlot)
+import(RCurl)
+import(XML)
