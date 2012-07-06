@@ -64,8 +64,8 @@ fetchArxiv <- function(query, fromYear,
     message(query, ":");
     for (i in seq(along=years)) {
         message("  fetching counts for ", years[i], " ...");
-        queryResult <- RCurl::getURL(.buildQueryUrl(query, years[i]));
-        m[i, "counts"] <- .counts(queryResult);
+        queryResult <- RCurl::getURL(.buildArxivQueryUrl(query, years[i]));
+        m[i, "counts"] <- .arxivCounts(queryResult);
 
         ## to be polite and to follow arxiv's user manual we have to
         ## wait (max. 1 query each 3 seconds allowed)
@@ -76,7 +76,7 @@ fetchArxiv <- function(query, fromYear,
 }
 
 ## helper function to build arxiv search url
-.buildQueryUrl <- function(query, year) {
+.buildArxivQueryUrl <- function(query, year) {
 
     ## ONLY CHANGE IF YOU KNOW WHAT YOU ARE DOING
     baseUrl <- "http://export.arxiv.org/api/query?search_query=";
@@ -96,7 +96,7 @@ fetchArxiv <- function(query, fromYear,
 }
 
 ## helper function to parse xml and grep counts
-.counts <- function(queryResult) {
+.arxivCounts <- function(queryResult) {
 
     xml <- XML::xmlTreeParse(queryResult, asText=TRUE);
     xmlChild <- XML::xmlChildren(xml$doc$children$feed);

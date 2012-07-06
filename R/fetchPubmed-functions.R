@@ -68,8 +68,8 @@ fetchPubmed <- function(query, fromYear,
     message(query, ":");
     for (i in seq(along=years)) {
         message("  fetching counts for ", years[i], " ...");
-        queryResult <- RCurl::getURL(.buildQueryUrl(query, years[i]));
-        m[i, "counts"] <- .counts(queryResult);
+        queryResult <- RCurl::getURL(.buildPubmedQueryUrl(query, years[i]));
+        m[i, "counts"] <- .pubmedCounts(queryResult);
 
         ## to be polite and to follow pubmed's e-utility guidelines we have to
         ## wait (max. 3 queries per second allowed)
@@ -80,7 +80,7 @@ fetchPubmed <- function(query, fromYear,
 }
 
 ## helper function to build pubmed search url
-.buildQueryUrl <- function(query, year) {
+.buildPubmedQueryUrl <- function(query, year) {
 
     ## ONLY CHANGE IF YOU KNOW WHAT YOU ARE DOING
     baseUrl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi";
@@ -100,7 +100,7 @@ fetchPubmed <- function(query, fromYear,
 }
 
 ## helper function to parse xml and grep counts
-.counts <- function(queryResult) {
+.pubmedCounts <- function(queryResult) {
 
     xml <- XML::xmlTreeParse(queryResult, asText=TRUE);
 
