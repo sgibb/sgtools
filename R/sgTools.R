@@ -19,7 +19,7 @@
 #'
 #'
 #' @docType package
-#' @name rmisc
-#' @aliases rmisc package-rmisc
+#' @name sgTools 
+#' @aliases sgTools package-sgTools
 #'
 NULL

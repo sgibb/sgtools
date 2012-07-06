@@ -3,7 +3,7 @@
 ```R
 install.packages("devtools")
 library("devtools")
-install_github("rmisc", "sgibb")
+install_github("sgTools", "sgibb")
 ```
 
 
