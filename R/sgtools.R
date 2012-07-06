@@ -19,7 +19,7 @@
 #'
 #'
 #' @docType package
-#' @name sgTools 
-#' @aliases sgTools package-sgTools
+#' @name sgtools 
+#' @aliases sgtools package-sgtools
 #'
 NULL

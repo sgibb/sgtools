@@ -17,4 +17,4 @@ Collate:
     'loadLibrary-functions.R'
     'multipleHist-functions.R'
     'zoomPlot-functions.R'
-    'sgTools.R'
+    'sgtools.R'
