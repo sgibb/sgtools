@@ -1,4 +1,4 @@
-Package: sgTools
+Package: sgtools
 Version: 0.1
 Date: 2012-07-05
 Title: miscellaneous R functions
@@ -9,7 +9,7 @@ Depends:
     RCurl,
     XML
 License: GPL (>= 3)
-URL: https://github.com/sgibb/rmisc
+URL: https://github.com/sgibb/sgtools
 LazyLoad: yes
 Collate:
     'fetchArxiv-functions.R'
