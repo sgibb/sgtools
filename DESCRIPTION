@@ -18,3 +18,4 @@ Collate:
     'multipleHist-functions.R'
     'zoomPlot-functions.R'
     'sgtools.R'
+    'removeWhiteSpaces-functions.R'
