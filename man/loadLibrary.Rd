@@ -2,8 +2,7 @@
 \alias{loadLibrary}
 \title{loadLibrary}
 \usage{
-  loadLibrary(x, repos = "http://cran.at.r-project.org",
-    ...)
+  loadLibrary(x, repos = getOption("repos"), ...)
 }
 \arguments{
   \item{x}{the name of a package}

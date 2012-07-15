@@ -30,7 +30,7 @@
 #'  loadLibrary("MALDIquant")
 #'
 
-loadLibrary <- function(x, repos="http://cran.at.r-project.org", ...) {
+loadLibrary <- function(x, repos=getOption("repos"), ...) {
     ## get warning settings
     warn <- getOption("warn", default=1);
     ## show warnings when they occur
