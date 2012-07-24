@@ -1,6 +1,6 @@
 Package: sgtools
-Version: 0.1.1
-Date: 2012-07-05
+Version: 0.2
+Date: 2012-07-24
 Title: miscellaneous R functions
 Author: Sebastian Gibb
 Maintainer: Sebastian Gibb <mail@sebastiangibb.de>
@@ -17,5 +17,5 @@ Collate:
     'loadLibrary-functions.R'
     'multipleHist-functions.R'
     'zoomPlot-functions.R'
-    'sgtools.R'
     'removeSpaces-functions.R'
+    'package.R'

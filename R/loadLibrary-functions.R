@@ -15,11 +15,12 @@
 
 #' loadLibrary
 #' 
-#' helper function to call \code{\link{library}} and install missing packages
-#' if needed
+#' helper function to call \code{\link{library}}, install missing packages or
+#' update old packages if needed
 #'
 #' @param x the name of a package
 #' @param repos character vector, the base URLs of the repositories to use
+#' @param contrib.url URL(s) of the contrib sections of the repositories
 #' @param ... arguments to be passed to \code{\link{require}}
 #'
 #' @return nothing
@@ -27,35 +28,44 @@
 #' @export
 #'
 #' @examples
-#'  loadLibrary("MALDIquant")
+#' loadLibrary("MALDIquant")
 #'
 
-loadLibrary <- function(x, repos=getOption("repos"), ...) {
-    ## get warning settings
-    warn <- getOption("warn", default=1);
-    ## show warnings when they occur
-    options(warn=1);
-
-    for (i in seq(along=x)) {
-        p <- (x[i]);
-
-        ## try to load package
-        if (!require(p, character.only=TRUE, ...)) {
-            message("Package ", sQuote(p), " is missing, try downloading ",
-                    "and installing it.");
-            ## if failed: try installing it
-            install.packages(p, repos=repos, ...);
-
-            ## no success? => stop
-            if (!require(p, character.only=TRUE, ...)) {
-                stop("Package ", sQuote(p), " is missing and installation ",
-                     "failed!");
-            }
-        }
+loadLibrary <- function(x, repos=getOption("repos"),
+                        contriburl=contrib.url(repos, type=.Platform$pkgType),
+                        ...) {
+  ## get warning settings
+  warn <- getOption("warn", default=1)
+  ## show warnings when they occur
+  options(warn=1)
+  
+  installedPackages <- installed.packages()
+  oldPackages <- old.packages(repos=repos, contriburl=contriburl)
+  
+  for (i in seq(along=x)) {
+    p <- (x[i])
+    
+    ## Is package missing?
+    if (!(p %in% installedPackages[, "Package"])) {
+      message("Package ", sQuote(p), " is missing, try downloading ",
+              "and installing it.")
+      install.packages(p, repos=repos, contriburl=contriburl, ...)
     }
-    ## reset warning settings
-    options(warn=warn);
+    
+    ## Is an updated version available?
+    if (p %in% oldPackages[, "Package"]) {
+      update.packages(p, repos=repos, contriburl=contriburl, ...)
+    }
 
-    invisible();
+    ## load package
+    if (!require(p, character.only=TRUE, ...)) {
+      stop("Package ", sQuote(p), " is missing and installation failed!")
+    }
+  }
+
+  ## reset warning settings
+  options(warn=warn)
+
+  invisible()
 }
 
