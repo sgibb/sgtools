@@ -20,6 +20,7 @@
 #'
 #' @param x the name of a package
 #' @param repos character vector, the base URLs of the repositories to use
+#' @param type character string, the preferred setting (e.g. "source")
 #' @param contriburl URL(s) of the contrib sections of the repositories
 #' @param lib.loc a character vector describing the location of the R library
 #'
@@ -31,8 +32,8 @@
 #' \dontrun{loadLibrary("MALDIquant")}
 #'
 
-loadLibrary <- function(x, repos=getOption("repos"),
-                        contriburl=contrib.url(repos, type=.Platform$pkgType),
+loadLibrary <- function(x, repos=getOption("repos"), type=.Platform$pkgType,
+                        contriburl=contrib.url(repos, type=type),
                         lib.loc=NULL) {
   ## get warning settings
   warn <- getOption("warn", default=1)
@@ -50,7 +51,7 @@ loadLibrary <- function(x, repos=getOption("repos"),
          (p %in% oldPackages[, "Package"])) {
       message("Package ", sQuote(p), " is missing or outdated, ",
               "try to download and to install it.")
-      install.packages(p, lib=lib.loc, contriburl=contriburl)
+      install.packages(p, lib=lib.loc, contriburl=contriburl, type=type)
     }
     
     ## load package
