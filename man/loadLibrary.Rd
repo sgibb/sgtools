@@ -4,7 +4,7 @@
 \usage{
   loadLibrary(x, repos = getOption("repos"),
     contriburl = contrib.url(repos, type = .Platform$pkgType),
-    ...)
+    lib.loc = NULL)
 }
 \arguments{
   \item{x}{the name of a package}
@@ -12,11 +12,11 @@
   \item{repos}{character vector, the base URLs of the
   repositories to use}
 
-  \item{contrib.url}{URL(s) of the contrib sections of the
+  \item{contriburl}{URL(s) of the contrib sections of the
   repositories}
 
-  \item{...}{arguments to be passed to
-  \code{\link{require}}}
+  \item{lib.loc}{a character vector describing the location
+  of the R library}
 }
 \value{
   nothing
@@ -26,7 +26,7 @@
   missing packages or update old packages if needed
 }
 \examples{
-loadLibrary("MALDIquant")
+\dontrun{loadLibrary("MALDIquant")}
 }
 \seealso{
   install.pacakges require

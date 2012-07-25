@@ -20,45 +20,41 @@
 #'
 #' @param x the name of a package
 #' @param repos character vector, the base URLs of the repositories to use
-#' @param contrib.url URL(s) of the contrib sections of the repositories
-#' @param ... arguments to be passed to \code{\link{require}}
+#' @param contriburl URL(s) of the contrib sections of the repositories
+#' @param lib.loc a character vector describing the location of the R library
 #'
 #' @return nothing
 #' @seealso install.pacakges require
 #' @export
 #'
 #' @examples
-#' loadLibrary("MALDIquant")
+#' \dontrun{loadLibrary("MALDIquant")}
 #'
 
 loadLibrary <- function(x, repos=getOption("repos"),
                         contriburl=contrib.url(repos, type=.Platform$pkgType),
-                        ...) {
+                        lib.loc=NULL) {
   ## get warning settings
   warn <- getOption("warn", default=1)
   ## show warnings when they occur
   options(warn=1)
   
   installedPackages <- installed.packages()
-  oldPackages <- old.packages(repos=repos, contriburl=contriburl)
+  oldPackages <- old.packages(lib.loc=lib.loc, contriburl=contriburl)
   
   for (i in seq(along=x)) {
     p <- (x[i])
     
-    ## Is package missing?
-    if (!(p %in% installedPackages[, "Package"])) {
-      message("Package ", sQuote(p), " is missing, try downloading ",
-              "and installing it.")
-      install.packages(p, repos=repos, contriburl=contriburl, ...)
+    ## Is package missing or is an updated version available?
+    if (!(p %in% installedPackages[, "Package"]) ||
+         (p %in% oldPackages[, "Package"])) {
+      message("Package ", sQuote(p), " is missing or outdated, ",
+              "try to download and to install it.")
+      install.packages(p, lib=lib.loc, contriburl=contriburl)
     }
     
-    ## Is an updated version available?
-    if (p %in% oldPackages[, "Package"]) {
-      update.packages(p, repos=repos, contriburl=contriburl, ...)
-    }
-
     ## load package
-    if (!require(p, character.only=TRUE, ...)) {
+    if (!require(p, lib.loc=lib.loc, character.only=TRUE)) {
       stop("Package ", sQuote(p), " is missing and installation failed!")
     }
   }
