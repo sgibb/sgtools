@@ -19,3 +19,4 @@ Collate:
     'zoomPlot-functions.R'
     'removeSpaces-functions.R'
     'package.R'
+    'updatePackages-functions.R'
