@@ -15,7 +15,7 @@
 
 #' loadLibrary
 #' 
-#' helper function to call \code{\link{library}}, install missing packages or
+#' Helper function to call \code{\link{library}}, install missing packages or
 #' update old packages if needed
 #'
 #' @param x the name of a package
@@ -25,7 +25,7 @@
 #' @param lib.loc a character vector describing the location of the R library
 #'
 #' @return nothing
-#' @seealso install.pacakges require
+#' @seealso \code{\link[utils]{install.packages}}, \code{\link[base]{require}}
 #' @export
 #'
 #' @examples

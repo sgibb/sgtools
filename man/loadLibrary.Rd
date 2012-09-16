@@ -3,7 +3,8 @@
 \title{loadLibrary}
 \usage{
   loadLibrary(x, repos = getOption("repos"),
-    contriburl = contrib.url(repos, type = .Platform$pkgType),
+    type = .Platform$pkgType,
+    contriburl = contrib.url(repos, type = type),
     lib.loc = NULL)
 }
 \arguments{
@@ -11,6 +12,9 @@
 
   \item{repos}{character vector, the base URLs of the
   repositories to use}
+
+  \item{type}{character string, the preferred setting (e.g.
+  "source")}
 
   \item{contriburl}{URL(s) of the contrib sections of the
   repositories}
@@ -22,13 +26,14 @@
   nothing
 }
 \description{
-  helper function to call \code{\link{library}}, install
+  Helper function to call \code{\link{library}}, install
   missing packages or update old packages if needed
 }
 \examples{
 \dontrun{loadLibrary("MALDIquant")}
 }
 \seealso{
-  install.pacakges require
+  \code{\link[utils]{install.packages}},
+  \code{\link[base]{require}}
 }
 
