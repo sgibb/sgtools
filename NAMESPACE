@@ -1,5 +1,6 @@
 export(fetchArxiv)
 export(fetchPubmed)
+export(installPackages)
 export(loadLibrary)
 export(multipleHist)
 export(removeSpaces)

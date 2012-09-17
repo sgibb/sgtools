@@ -20,3 +20,4 @@ Collate:
     'removeSpaces-functions.R'
     'package.R'
     'updatePackages-functions.R'
+    'installPackages-functions.R'
