@@ -1,11 +1,17 @@
 RELEASE HISTORY OF THE "sgtools" PACKAGE
 ========================================
 
+Version 0.4 [2012-09-17]:
+- Add installPackages.
+
+Version 0.3 [2012-09-16]:
+- Add updatePackages.
+
 Version 0.2.1 [2012-07-25]:
-- Fix update function in loadLibrary
+- Fix update function in loadLibrary.
 
 Version 0.2 [2012-07-24]:
-- Add update function to loadLibrary
+- Add update function to loadLibrary.
 
 Version 0.1 [2012-07-05]:
-- Initial release
+- Initial release.
