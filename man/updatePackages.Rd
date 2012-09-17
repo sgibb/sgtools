@@ -4,7 +4,8 @@
 \usage{
   updatePackages(lib.loc = NULL,
     repos = getOption("repos"), type = .Platform$pkgType,
-    contriburl = contrib.url(repos, type = type))
+    contriburl = contrib.url(repos, type = type),
+    ask = TRUE)
 }
 \arguments{
   \item{lib.loc}{a character vector describing the location
@@ -18,6 +19,9 @@
 
   \item{contriburl}{URL(s) of the contrib sections of the
   repositories}
+
+  \item{ask}{logical indicating whether to ask user before
+  packages are actually downloaded and installed}
 }
 \value{
   nothing
