@@ -47,13 +47,14 @@ multipleHist <- function(l, col=rainbow(length(l)), right=TRUE, legend=names(l),
     ## create names
     names <- unique(unlist(lapply(l, function(x)x$breaks)))
 
-    names <- mapply(function(a, b) {
-        if (right) {
-            return(paste("(", a, ", ", b, "]", sep=""));
-        } else {
-            return(paste("[", a, ", ", b, ")", sep=""));
-        }
-    }, a=names[-length(names)], b=names[-1], SIMPLIFY=FALSE);
+    a <- head(names, -1)
+    b <- names[-1]
+
+    if (right) {
+      names <- paste("(", a, ", ", b, "]", sep="");
+    } else {
+      names <- paste("[", a, ", ", b, ")", sep="");
+    }
   
     ## create barplot list
     h <- do.call(rbind, densities);
