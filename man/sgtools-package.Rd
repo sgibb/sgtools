@@ -9,7 +9,7 @@
 }
 \details{
   \tabular{ll}{ Package: \tab sgtools \cr Version: \tab
-  0.4.1\cr Date: \tab 2012-10-08\cr License: \tab GPL (>=
+  0.5\cr Date: \tab 2013-01-31\cr License: \tab GPL (>=
   3)\cr URL: \tab http://www.github.com/sgibb/sgtools/ \cr
   }
 }

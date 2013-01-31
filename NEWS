@@ -1,6 +1,9 @@
 RELEASE HISTORY OF THE "sgtools" PACKAGE
 ========================================
 
+Version 0.5 [2013-01-31]:
+- add SLOC counting functions (sloc, lloc, ploc, sloc.files)
+
 Version 0.4.1 [2012-10-08]:
 - multipleHist: avoid mapply when creating labels for the x-axis.
 
