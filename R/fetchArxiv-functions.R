@@ -28,24 +28,19 @@
 #'      1. column: "year"
 #'      2. column: "counts"
 #'
-#' @import RCurl XML
 #' @export
 #'
 #' @examples
 #'  bayes <- fetchArxiv("cat:stat.AP AND abs:Bayes", 2009, 2010)
-#'  bayes 
+#'  bayes
 #'  #        year counts
 #'  #   [1,] 2009      4
 #'  #   [2,] 2010     13
 #'
 
-fetchArxiv <- function(query, fromYear, 
+fetchArxiv <- function(query, fromYear,
                        toYear=as.integer(format(Sys.Date(), "%Y"))-1) {
 
-    ## load libraries
-    library("RCurl");
-    library("XML");
-    
     ## testing arguments
     isValidQuery <- is.character(query);
     isValidFromYear <- is.numeric(fromYear) && fromYear <= toYear;
@@ -82,7 +77,7 @@ fetchArxiv <- function(query, fromYear,
     baseUrl <- "http://export.arxiv.org/api/query?search_query=";
     ##
 
-    query <- paste(baseUrl, query, " AND lastUpdatedDate:", 
+    query <- paste(baseUrl, query, " AND lastUpdatedDate:",
                    "[", year, "01010000 TO ", year, "12312359]",
                    "&max_results=1", sep="");
 

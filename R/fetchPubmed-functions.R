@@ -20,7 +20,7 @@
 #' @references Kristoffer Magnusson
 #' \emph{An R Script to Automatically download PubMed Citation Counts By Year of Publication}
 #' \url{http://rpsychologist.com/an-r-script-to-automatically-look-at-pubmed-citation-counts-by-year-of-publication/}
-#'  
+#'
 #' \url{http://eutils.ncbi.nlm.nih.gov/entrez/query/static/esearch_help.html}
 #'
 #' @param query character, search term e.g. "Mass Spectrometry[MeSH]"
@@ -32,7 +32,6 @@
 #'      1. column: "year"
 #'      2. column: "counts"
 #'
-#' @import RCurl XML
 #' @export
 #'
 #' @examples
@@ -43,13 +42,9 @@
 #'  #   [2,] 2010  11143
 #'
 
-fetchPubmed <- function(query, fromYear, 
+fetchPubmed <- function(query, fromYear,
                         toYear=as.integer(format(Sys.Date(), "%Y"))-1) {
 
-    ## load libraries
-    library("RCurl");
-    library("XML");
-    
     ## testing arguments
     isValidQuery <- is.character(query);
     isValidFromYear <- is.numeric(fromYear) && fromYear <= toYear;
@@ -87,7 +82,7 @@ fetchPubmed <- function(query, fromYear,
     db <- "pubmed";
     ##
 
-    query <- paste(baseUrl, "?db=", db, "&rettype=count&term=", 
+    query <- paste(baseUrl, "?db=", db, "&rettype=count&term=",
                    query, " AND ", year, "[ppdat]", sep="");
 
     ## replace special characters by url conform version

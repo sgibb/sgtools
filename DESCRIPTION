@@ -5,11 +5,12 @@ Title: miscellaneous R functions
 Author: Sebastian Gibb
 Maintainer: Sebastian Gibb <mail@sebastiangibb.de>
 Description: This package provides some miscellaneous functions.
-Depends:
+Imports:
     RCurl,
     XML
 License: GPL (>= 3)
 URL: https://github.com/sgibb/sgtools
+BugReports: https://github.com/sgibb/sgtools/issues
 LazyLoad: yes
 Collate:
     'fetchArxiv-functions.R'

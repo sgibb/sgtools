@@ -24,13 +24,16 @@
 #' License: \tab GPL (>= 3)\cr
 #' URL: \tab http://www.github.com/sgibb/sgtools/ \cr
 #' }
-#' 
+#'
 #' @docType package
-#' @name sgtools 
+#' @name sgtools
 #' @aliases sgtools package-sgtools
 #' @author Sebastian Gibb <\email{mail@@sebastiangibb.de}>
 #' @references \url{http://www.github.com/sgibb/sgtools/}
 #' @keywords package
 #' @rdname sgtools-package
+#'
+#' @importFrom RCurl getURL
+#' @importFrom XML xmlTreeParse xmlChildren xmlValue
 #'
 NULL
