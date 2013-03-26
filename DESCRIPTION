@@ -1,6 +1,6 @@
 Package: sgtools
-Version: 0.5
-Date: 2013-01-31
+Version: 0.6
+Date: 2013-03-26
 Title: miscellaneous R functions
 Author: Sebastian Gibb
 Maintainer: Sebastian Gibb <mail@sebastiangibb.de>
@@ -23,3 +23,4 @@ Collate:
     'updatePackages-functions.R'
     'installPackages-functions.R'
     'sloc-functions.R'
+    'sourceLines-functions.R'
